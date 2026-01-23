@@ -1,2 +1,4 @@
 # angular
-Angular repository boilerplate with optimised code
+Angular repository boilerplate for admin panel, using new features.
+
+
