@@ -3,6 +3,5 @@
  * Enables or disables features at runtime
  */
 export interface FeatureFlag {
-  key: string;
-  enabled: boolean;
+  [key: string]: boolean;
 }

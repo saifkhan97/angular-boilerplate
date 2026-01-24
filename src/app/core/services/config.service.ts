@@ -1,32 +1,24 @@
-import { Injectable } from '@angular/core';
 
-export interface AppConfig {
-  apiBaseUrl: string;
-  production: boolean;
-  features?: Record<string, boolean>;
-}
+import { AppConfig } from '../../models/config/app-config.model';
+import { Injectable, signal, computed } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { FeatureFlag } from '../../models/config/feature-flag.model';
+
 
 @Injectable({ providedIn: 'root' })
 export class ConfigService {
 
-  private readonly config: AppConfig = {
-    apiBaseUrl: 'https://api.example.com',
-    production: false,
-    features: {
-      enableAuditLogs: true,
-      enableReports: false
-    }
-  };
+  
 
   get apiBaseUrl(): string {
-    return this.config.apiBaseUrl;
+    return environment.apiBaseUrl;
   }
+  private _featureFlags = signal<FeatureFlag>(environment.featureFlags);
 
-  isProduction(): boolean {
-    return this.config.production;
-  }
+  readonly featureFlags = computed(() => this._featureFlags());
 
-  isFeatureEnabled(feature: string): boolean {
-    return !!this.config.features?.[feature];
+  /** Check if a feature is enabled */
+  isFeatureEnabled(flag: keyof FeatureFlag): boolean {
+    return !!this._featureFlags()[flag];
   }
 }
