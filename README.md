@@ -16,7 +16,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 # Core Module (app/core)
 
 core/auth/ <br />
-├── auth.service.ts # login, logout, refresh
+├── auth.service.ts # login, logout, refresh <br />
 ├── token.service.ts # access/refresh token handling
 ├── auth.guard.ts # isAuthenticated
 ├── role.guard.ts # RBAC
