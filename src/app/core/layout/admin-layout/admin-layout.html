@@ -1,1 +1,16 @@
-<p>admin-layout works!</p>
+<div class="admin-layout">
+      <app-header />
+
+      <div class="admin-body">
+        <app-sidebar />
+
+        <main class="content">
+          <router-outlet />
+        </main>
+      </div>
+
+      @if (loadingService.isLoading()) {
+        <!-- <app-loader /> -->
+         <p>Loading...(will replace loader later)</p>
+      }
+    </div>

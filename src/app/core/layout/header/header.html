@@ -1,1 +1,15 @@
-<p>header works!</p>
+<header class="header">
+      <div class="logo">Admin Panel</div>
+
+      <div class="actions">
+        <select
+          [value]="i18n.language()"
+          (change)="changeLang($event)"
+        >
+          <option value="en">EN</option>
+          <option value="hi">HI</option>
+        </select>
+
+        <button (click)="logout()">Logout</button>
+      </div>
+    </header>

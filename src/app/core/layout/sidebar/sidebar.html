@@ -1,1 +1,13 @@
-<p>sidebar works!</p>
+<aside class="sidebar" [class.collapsed]="collapsed()">
+      <button class="toggle" (click)="toggle()">☰</button>
+
+      <ul>
+        @for (item of menu; track item.route) {
+          @if (canShow(item)) {
+            <li routerLinkActive="active">
+              <a [routerLink]="item.route">{{ item.label }}</a>
+            </li>
+          }
+        }
+      </ul>
+    </aside>
