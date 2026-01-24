@@ -1,1 +1,31 @@
-<p>modal works!</p>
+@if(visible()){
+    <div class="modal-backdrop" 
+         animate.enter="fade-scale-in" 
+         animate.leave="fade-scale-out"
+         (animate.leave)="$event.animationComplete()">
+         
+      <div class="modal-dialog">
+        @if(title){
+          <div class="modal-header" >
+            <h3>{{ title }}</h3>
+            <button class="close-btn" (click)="close()">✖</button>
+          </div>
+        }
+        <div class="modal-body">
+          <ng-content></ng-content>
+        </div>
+        @if(showFooter){
+          <div class="modal-footer" >
+            @for(btn of buttons;track btn){
+              <button  
+                    [ngClass]="btn.class || 'btn-default'" 
+                    (click)="btn.action()">
+                {{ btn.label }}
+              </button>
+            }
+            
+          </div>
+        }
+      </div>
+    </div>
+  }
