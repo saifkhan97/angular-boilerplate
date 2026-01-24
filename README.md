@@ -17,80 +17,80 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 core/auth/ <br />
 ├── auth.service.ts # login, logout, refresh <br />
-├── token.service.ts # access/refresh token handling
-├── auth.guard.ts # isAuthenticated
-├── role.guard.ts # RBAC
-├── permission.guard.ts # fine-grained access
+├── token.service.ts # access/refresh token handling <br />
+├── auth.guard.ts # isAuthenticated <br />
+├── role.guard.ts # RBAC <br />
+├── permission.guard.ts # fine-grained access <br />
 
-core/interceptors/
-├── auth.interceptor.ts # attach token
-├── error.interceptor.ts # normalize API errors
-├── retry.interceptor.ts # retry failed calls
-├── loading.interceptor.ts # global loader
+core/interceptors/ <br />
+├── auth.interceptor.ts # attach token <br />
+├── error.interceptor.ts # normalize API errors <br />
+├── retry.interceptor.ts # retry failed calls <br />
+├── loading.interceptor.ts # global loader <br />
 
 
-core/services/
-├── api.service.ts # wrapper over HttpClient
-├── config.service.ts # runtime config (env, flags)
-├── i18n.service.ts # language switch logic
-├── logger.service.ts # prod-safe logging
+core/services/ <br />
+├── api.service.ts # wrapper over HttpClient <br />
+├── config.service.ts # runtime config (env, flags) <br />
+├── i18n.service.ts # language switch logic <br />
+├── logger.service.ts # prod-safe logging <br />
 
-core/layout/
-├── admin-layout.component.ts
-├── header.component.ts
-├── sidebar.component.ts
+core/layout/ <br />
+├── admin-layout.component.ts <br />
+├── header.component.ts <br />
+├── sidebar.component.ts <br />
 
 # Shared Module Module (app/shared)
 
-shared/components/
-├── table/ # generic table with signals
-├── modal/
-├── confirm-dialog/
-├── pagination/
-├── empty-state/
-├── loader/
+shared/components/ <br />
+├── table/ # generic table with signals <br />
+├── modal/ <br />
+├── confirm-dialog/ <br />
+├── pagination/ <br />
+├── empty-state/ <br />
+├── loader/ <br />
 
-shared/directives/
-├── has-role.directive.ts
-├── has-permission.directive.ts
-├── debounce-click.directive.ts
-├── auto-focus.directive.ts
+shared/directives/ <br />
+├── has-role.directive.ts <br />
+├── has-permission.directive.ts <br />
+├── debounce-click.directive.ts <br />
+├── auto-focus.directive.ts <br />
 
-shared/pipes/
-├── truncate.pipe.ts
-├── safe-html.pipe.ts
-├── file-size.pipe.ts
+shared/pipes/ <br />
+├── truncate.pipe.ts <br />
+├── safe-html.pipe.ts <br />
+├── file-size.pipe.ts <br />
 
-shared/validators/
-├── strong-password.validator.ts
-├── no-whitespace.validator.ts
+shared/validators/ <br />
+├── strong-password.validator.ts <br />
+├── no-whitespace.validator.ts <br />
 
 ## Features
 # Login
-features/auth/
-├── login/
-│ ├── login.ts
-│ ├── login.html
-│ └── login.css
+features/auth/ <br />
+├── login/ <br />
+│ ├── login.ts <br />
+│ ├── login.html <br />
+│ └── login.css <br />
 
 # Users
 
-features/users/
-├── pages/
-│ ├── user-list.page.ts
-│ ├── user-create.page.ts
-│ └── user-details.page.ts
+features/users/ <br />
+├── pages/ <br />
+│ ├── user-list.page.ts <br />
+│ ├── user-create.page.ts <br />
+│ └── user-details.page.ts <br />
 │
-├── components/
-│ ├── user-table.component.ts
-│ └── user-form.component.ts
+├── components/ <br />
+│ ├── user-table.component.ts <br />
+│ └── user-form.component.ts <br />
 │
-├── store/
-│ ├── users.store.ts # SignalStore
-│ └── users.effects.ts
+├── store/ <br />
+│ ├── users.store.ts # SignalStore <br />
+│ └── users.effects.ts <br />
 │
-├── services/
-│ └── users.api.ts
+├── services/ <br />
+│ └── users.api.ts <br />
 │
-├── users.routes.ts
-└── users.feature.ts
+├── users.routes.ts <br />
+└── users.feature.ts <br />
