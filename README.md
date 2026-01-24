@@ -1,6 +1,6 @@
-# AngularB
+# Angular Boiler Plate
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+Start your development for admin panel/back office, by just cloning. Contain full structure with newly available concept
 
 ## Development server
 
@@ -12,48 +12,85 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## What goes where
+# Core Module (app/core)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+core/auth/
+├── auth.service.ts # login, logout, refresh
+├── token.service.ts # access/refresh token handling
+├── auth.guard.ts # isAuthenticated
+├── role.guard.ts # RBAC
+├── permission.guard.ts # fine-grained access
 
-```bash
-ng generate component component-name
-```
+core/interceptors/
+├── auth.interceptor.ts # attach token
+├── error.interceptor.ts # normalize API errors
+├── retry.interceptor.ts # retry failed calls
+├── loading.interceptor.ts # global loader
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+core/services/
+├── api.service.ts # wrapper over HttpClient
+├── config.service.ts # runtime config (env, flags)
+├── i18n.service.ts # language switch logic
+├── logger.service.ts # prod-safe logging
 
-## Building
+core/layout/
+├── admin-layout.component.ts
+├── header.component.ts
+├── sidebar.component.ts
 
-To build the project run:
+# Shared Module Module (app/shared)
 
-```bash
-ng build
-```
+shared/components/
+├── table/ # generic table with signals
+├── modal/
+├── confirm-dialog/
+├── pagination/
+├── empty-state/
+├── loader/
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+shared/directives/
+├── has-role.directive.ts
+├── has-permission.directive.ts
+├── debounce-click.directive.ts
+├── auto-focus.directive.ts
 
-## Running unit tests
+shared/pipes/
+├── truncate.pipe.ts
+├── safe-html.pipe.ts
+├── file-size.pipe.ts
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+shared/validators/
+├── strong-password.validator.ts
+├── no-whitespace.validator.ts
 
-```bash
-ng test
-```
+## Features
+# Login
+features/auth/
+├── login/
+│ ├── login.ts
+│ ├── login.html
+│ └── login.css
 
-## Running end-to-end tests
+# Users
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+features/users/
+├── pages/
+│ ├── user-list.page.ts
+│ ├── user-create.page.ts
+│ └── user-details.page.ts
+│
+├── components/
+│ ├── user-table.component.ts
+│ └── user-form.component.ts
+│
+├── store/
+│ ├── users.store.ts # SignalStore
+│ └── users.effects.ts
+│
+├── services/
+│ └── users.api.ts
+│
+├── users.routes.ts
+└── users.feature.ts
