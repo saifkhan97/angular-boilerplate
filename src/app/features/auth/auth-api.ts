@@ -25,7 +25,7 @@ export class AuthApi {
    */
   login(payload: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(
-      `auth/login`,
+      `/auth/login`,
       payload
     );
   }

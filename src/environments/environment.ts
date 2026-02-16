@@ -3,7 +3,7 @@ import { FeatureFlag } from '../app/models/config/feature-flag.model';
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://dummyjson.com/',
+  apiBaseUrl: 'https://dummyjson.com',
   defaultLanguage: 'en',
   featureFlags: <FeatureFlag>{
     userManagement: true,

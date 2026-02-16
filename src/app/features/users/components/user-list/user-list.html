@@ -1,1 +1,5 @@
-<p>user-list works!</p>
+@for (u of users; track u.email) {
+  <div>
+    {{ u.firstName }} | {{ u.email }} | {{ u.mobile }}
+  </div>
+}

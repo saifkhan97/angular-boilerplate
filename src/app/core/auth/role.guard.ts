@@ -12,10 +12,10 @@ export const roleGuard: CanActivateFn = (route: ActivatedRouteSnapshot) => {
     return true;
   }
 
-  if (!auth.hasAnyRole(allowedRoles)) {
-    router.navigate(['/unauthorized']);
-    return false;
-  }
+  // if (!auth.hasAnyRole(allowedRoles)) {
+  //   router.navigate(['/unauthorized']);
+  //   return false;
+  // }
 
   return true;
 };
