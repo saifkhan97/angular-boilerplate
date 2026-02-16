@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthApi } from '../auth-api';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -57,7 +58,9 @@ export class Login {
       email:email,
       password:password
     }
-    this.authApiService.login(payload).subscribe({
+    this.authApiService.login(payload)
+    .pipe(take(1))
+    .subscribe({
       next: (res) => {
         // 1️⃣ Set auth state (tokens + user)
         this.authService.login(res.accessToken, res.refreshToken);
