@@ -25,7 +25,8 @@ export class Sidebar {
   protected collapsed = signal(false);
 
   protected menu: MenuItem[] = [
-    { label: 'Users', route: '/users', roles: ['ADMIN'] },
+    // { label: 'Users', route: '/users', roles: ['ADMIN'] },
+    { label: 'Users', route: '/users' },
     { label: 'Dashboard', route: '/dashboard' }
   ];
 

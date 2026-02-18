@@ -1,9 +1,6 @@
 // app/app.routes.ts
 import { Routes } from '@angular/router';
 import { authGuard } from './core/auth/auth.guard';
-
-
-// import { UsersFeature } from './features/users/users.feature';
 import { AdminLayout } from './core/layout/admin-layout/admin-layout';
 import { Login } from './features/auth/login/login';
 
@@ -14,7 +11,12 @@ export const routes: Routes = [
     component: AdminLayout,
     canActivate: [authGuard],
     children: [
-    //   { path: 'users', loadChildren: () => UsersFeature() },
+      {
+        path: 'users',
+        loadChildren: () =>  import('./features/users/users.routes')
+          .then(m => m.usersRoutes)
+      },
+      
       { path: '', redirectTo: 'users', pathMatch: 'full' },
     ]
   },
