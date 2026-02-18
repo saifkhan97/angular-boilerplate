@@ -5,8 +5,9 @@ import { User } from '../../../models/user/user.model';
 import { ApiService } from '../../../core/services/api.service';
 export interface UsersApiResponse {
   limit: number;
-  skip: number;
+  page: number;
   total: number;
+  totalPages:number;
   users: User[];
 }
 @Injectable({ providedIn: 'root' })

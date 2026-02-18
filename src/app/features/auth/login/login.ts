@@ -45,11 +45,6 @@ export class Login {
       this.form.markAllAsTouched();
       return;
     }
-    let AT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE3MzU2ODAwMDB9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
-    let RT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE5NDcwMDAwMDB9.YmFzZTY0dXJsZW5jb2RlZHNpZ25hdHVyZQ";
-    this.authService.login(AT, RT);
-    this.router.navigateByUrl('/');
-    return;
     this.error.set(null);
     this.submitting.set(true);
 
@@ -64,7 +59,7 @@ export class Login {
       next: (res) => {
         // 1️⃣ Set auth state (tokens + user)
         this.authService.login(res.accessToken, res.refreshToken);
-
+        
         // 2️⃣ Navigate after successful auth
         this.router.navigateByUrl('/');
       },
